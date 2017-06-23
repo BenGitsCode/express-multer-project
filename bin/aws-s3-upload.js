@@ -104,5 +104,12 @@ randomBytesPromise()
     return file
   })
   .then(s3Upload)
+  .then((s3Response) => {
+    return Upload.create({
+      url: s3Response.Location,
+      title: s3Response.Key
+    })
+  })
   .then(console.log)
+  .then(() => mongoose.connection.close())
   .catch(console.error)
