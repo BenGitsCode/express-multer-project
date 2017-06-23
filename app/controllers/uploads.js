@@ -5,7 +5,6 @@ const models = require('app/models')
 const Upload = models.upload
 
 const setModel = require('./concerns/set-mongoose-model')
-
 const multer = require('multer')
 const multerUpload = multer({ dest: '/tmp/' })
 
@@ -62,6 +61,6 @@ module.exports = controller({
   destroy
 }, { before: [
   { method: multerUpload.single('image[file]'), only: ['create'] },
-  { method: setModel(Upload), only: ['show', 'destroy', 'update'] },
+  { method: setModel(Upload), only: ['show', 'destroy', 'update'] }
   // { method: setModel(Upload), only: ['update', 'destroy'] }
 ] })
