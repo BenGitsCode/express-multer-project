@@ -15,6 +15,12 @@ const path = require('path')
 // require crypto module
 const crypto = require('crypto')
 
+// require mongoose
+const mongoose = require('./../app/middleware/mongoose')
+
+// require upload model
+const Upload = require('./../app/models/upload')
+
 // require aws-sdk module
 const AWS = require('aws-sdk')
 
