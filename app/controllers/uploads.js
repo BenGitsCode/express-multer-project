@@ -33,7 +33,7 @@ const destroy = (req, res, next) => {
 
 const create = (req, res, next) => {
   const upload = {
-    path: req.file.path,
+    path: req.file.originalname,
     title: req.body.image.title
   }
   awsUpload(file)
